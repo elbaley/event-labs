@@ -1,10 +1,12 @@
 import { useCallback, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { loginSuccess, logout as logoutAction } from "@/store/slices/authSlice";
-import { loginRequest } from "@/services/auth.service";
+import { loginRequest, logoutRequest } from "@/services/auth.service";
 import type { LoginCredentials } from "@/types/auth";
+import { useRouter } from "next/router";
 
 export function useAuth() {
+  const router = useRouter();
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.auth);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
@@ -29,10 +31,12 @@ export function useAuth() {
     [dispatch],
   );
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
     setLoginError(null);
     dispatch(logoutAction());
-  }, [dispatch]);
+    await logoutRequest();
+    router.replace("/");
+  }, [dispatch, router]);
 
   return {
     auth,

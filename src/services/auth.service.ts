@@ -33,3 +33,9 @@ export async function loginRequest(
 
   return response.json() as Promise<LoginResponse>;
 }
+
+export async function logoutRequest() {
+  await fetch("/api/logout", {
+    method: "POST",
+  });
+}

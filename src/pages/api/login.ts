@@ -19,6 +19,12 @@ const mockAuthResponse: LoginResponse = {
   token: "mock-demo-token",
 };
 
+function createAuthCookie(token: string) {
+  return `eventlab_token=${encodeURIComponent(
+    token,
+  )}; Path=/; Max-Age=86400; SameSite=Lax; HttpOnly`;
+}
+
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<LoginResponse | ErrorResponse>,
@@ -36,6 +42,8 @@ export default function handler(
   ) {
     return res.status(401).json({ message: "Invalid credentials" });
   }
+
+  res.setHeader("Set-Cookie", createAuthCookie(mockAuthResponse.token));
 
   return res.status(200).json(mockAuthResponse);
 }
