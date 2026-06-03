@@ -1,40 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Event Labs
 
-## Getting Started
+Event Labs, etkinlik listeleme, arama, bilet seçimi, sepet ve mock checkout akışlarını içeren bir Next.js Pages Router projesidir.
 
-First, run the development server:
+## 🚀 Canlı Demo
+
+Projenin canlı haline aşağıdaki bağlantıdan ulaşabilirsiniz:
+
+[![Live Demo](https://img.shields.io/badge/Demo-Live_Preview-success?style=for-the-badge&logo=vercel)](https://eventlabs.furkanleba.com)
+
+👉 [eventlabs.furkanleba.com](https://eventlabs.furkanleba.com)
+
+## Kurulum
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Uygulama varsayılan olarak `http://localhost:3000` adresinde çalışır.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Production build'i ve testler:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+pnpm lint
+pnpm test:run
+pnpm build
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Kullanılan Teknolojiler
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 16 Pages Router
+- TypeScript
+- Tailwind CSS 4
+- Redux Toolkit
+- Redux Persist
+- React Hook Form
+- Zod
+- Vitest ve Testing Library
 
-## Learn More
+## Tamamlanan Maddeler
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js Pages Router, TypeScript, Tailwind ve Redux Toolkit kullanıldı.
+- `components`, `services`, `store`, `types`, `hooks` klasörleriyle modüler yapı kuruldu.
+- Ana sayfada etkinlik listesi için loading, error ve empty durumları eklendi.
+- `/event/[slug]` detay sayfası oluşturuldu.
+- Arama alanında minimum 3 karakter, 300 ms debounce ve `AbortController` ile istek iptali uygulandı.
+- Service katmanı oluşturuldu.
+- Birden fazla Next.js API Route eklendi: `/api/events`, `/api/events/search`, `/api/events/[slug]`, `/api/events/featured`, `/api/login`, `/api/logout`, `/api/checkout/complete`.
+- Login akışı Redux auth state ile yönetiliyor ve Redux Persist ile localStorage'da saklanıyor.
+- `/profile` sayfası sidebar layout ile oluşturuldu ve auth cookie üzerinden proxy koruması eklendi.
+- 3 adımlı checkout formu ve mock complete endpoint eklendi.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Bonus Maddeler
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Basit bilet/sepet seçimi ve adet yönetimi eklendi.
+- Bilet tipi, kategori ve blok seçiminde kademeli dropdown kullanıldı.
+- Şehir filtresi localStorage'da saklanıyor. eventler mock data olduğu için gerçek bir filterdan ziyade basit bir client side filter olarak kullandım.
+- Kategori filtresi URL tabanlı `/category/[categoryName]` routeu ile çalışıyor.
+- Sepet reducer ve etkinlik detay bileti ekleme akışı için unit testler eklendi.
 
-## Deploy on Vercel
+## Demo Bilgileri
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Login için demo kullanıcı:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- Email: `demo@eventlab.com`
+- Şifre: `123456`
+
+## Data
+
+Etkinlik verileri `src/data/events.json` dosyasındadır. API Route'lar bu mock data üzerinden cevap döner.
+
+## AI Kullanımı
+
+Projede AI desteği; proje kriterlerinin kontrolü, README düzenlemesi, küçük iyileştirmelerin belirlenmesi, unit testlerin implemantasyonu, redux store kurulumu ve teslim öncesi doğrulama komutlarının yorumlanması için kullanıldı.
+
+## Ek Notlar
+
+- `pnpm test:run`, `pnpm lint` ve `pnpm build` komutları başarılı çalışır.
+- Login endpoint'i mock olarak 3 saniyelik gecikmeyle cevap verir; bu gecikme loading durumunu göstermek içindir.
