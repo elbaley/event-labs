@@ -35,7 +35,7 @@ export function SiteHeader() {
   );
 
   return (
-    <header className="border-b bg-background">
+    <header className="sticky top-0 z-40 border-b bg-background">
       <div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-6">
         <Link href="/" aria-label="EventLab home" className="shrink-0">
           <Logo />
