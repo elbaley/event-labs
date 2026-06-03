@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, ShoppingCartIcon } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +19,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/use-auth";
+import { useAppSelector } from "@/store/hooks";
+import { getBasketItemCount } from "@/store/slices/cartSlice";
 
 const navLinks = [
   { href: "/events?category=concerts", label: "Konser" },
@@ -28,6 +30,9 @@ const navLinks = [
 
 export function SiteHeader() {
   const { isAuthenticated, logout } = useAuth();
+  const basketItemCount = useAppSelector((state) =>
+    getBasketItemCount(state.cart.items),
+  );
 
   return (
     <header className="border-b bg-background">
@@ -57,6 +62,18 @@ export function SiteHeader() {
         </NavigationMenu>
 
         <div className="hidden items-center gap-2 md:flex">
+          <Button asChild variant="ghost" size="sm">
+            <Link href="/basket">
+              <ShoppingCartIcon className="size-4" />
+              Sepet
+              {basketItemCount > 0 ? (
+                <span className="ml-0.5 rounded-md bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
+                  {basketItemCount}
+                </span>
+              ) : null}
+            </Link>
+          </Button>
+
           {isAuthenticated ? (
             <>
               <Button asChild variant="ghost" size="sm">
@@ -108,6 +125,19 @@ export function SiteHeader() {
                   </Link>
                 </SheetClose>
               ))}
+              <SheetClose asChild>
+                <Link
+                  href="/basket"
+                  className="flex items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  <span>Sepet</span>
+                  {basketItemCount > 0 ? (
+                    <span className="rounded-md bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
+                      {basketItemCount}
+                    </span>
+                  ) : null}
+                </Link>
+              </SheetClose>
             </nav>
 
             <Separator />
