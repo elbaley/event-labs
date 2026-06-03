@@ -19,14 +19,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/use-auth";
+import { eventCategories } from "@/lib/event-categories";
 import { useAppSelector } from "@/store/hooks";
 import { getBasketItemCount } from "@/store/slices/cartSlice";
 
-const navLinks = [
-  { href: "/events?category=concerts", label: "Konser" },
-  { href: "/events?category=sports", label: "Spor" },
-  { href: "/events?category=theatre", label: "Tiyatro" },
-];
+const navLinks = eventCategories.map((category) => ({
+  href: `/category/${category.value}`,
+  label: category.label,
+}));
 
 export function SiteHeader() {
   const { isAuthenticated, logout } = useAuth();

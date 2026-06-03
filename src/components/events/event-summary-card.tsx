@@ -2,13 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { CalendarDaysIcon, MapPinIcon, TicketIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { eventCategoryLabels } from "@/lib/event-categories";
 import type { EventSummary } from "@/types/event";
-
-const categoryLabels: Record<EventSummary["category"], string> = {
-  concert: "Konser",
-  theatre: "Tiyatro",
-  sport: "Spor",
-};
 
 function formatEventDate(date: string) {
   return new Intl.DateTimeFormat("tr-TR", {
@@ -50,7 +45,7 @@ export function EventSummaryCard({ event }: EventSummaryCardProps) {
         <CardContent className="flex min-h-56 flex-col gap-4 p-4">
           <div className="flex items-center justify-between gap-3">
             <span className="rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
-              {categoryLabels[event.category]}
+              {eventCategoryLabels[event.category]}
             </span>
             <span className="text-sm font-semibold">
               {formatPrice(event.basePrice)}

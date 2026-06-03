@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
-import { getFeaturedEventsRequest } from "@/services/events.service";
-import type { EventSummary } from "@/types/event";
+import {
+  getEventsRequest,
+  getFeaturedEventsRequest,
+} from "@/services/events.service";
+import type { EventCategory, EventSummary } from "@/types/event";
 
 type FeaturedEventsState = {
   events: EventSummary[];
   isLoading: boolean;
   error: string | null;
+};
+
+type EventsState = FeaturedEventsState & {
+  category?: EventCategory;
 };
 
 export function useFeaturedEvents() {
@@ -45,4 +52,58 @@ export function useFeaturedEvents() {
   }, []);
 
   return state;
+}
+
+export function useEvents(category?: EventCategory) {
+  const [state, setState] = useState<EventsState>({
+    events: [],
+    isLoading: false,
+    error: null,
+  });
+
+  useEffect(() => {
+    if (!category) {
+      return;
+    }
+
+    let isMounted = true;
+
+    async function loadEvents() {
+      setState((currentState) => ({
+        ...currentState,
+        isLoading: true,
+        error: null,
+      }));
+
+      try {
+        const events = await getEventsRequest(category);
+
+        if (!isMounted) return;
+        setState({ category, events, isLoading: false, error: null });
+      } catch (error) {
+        if (!isMounted) return;
+        setState({
+          category,
+          events: [],
+          isLoading: false,
+          error:
+            error instanceof Error
+              ? error.message
+              : "Etkinlikler yüklenemedi.",
+        });
+      }
+    }
+
+    loadEvents();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [category]);
+
+  return {
+    events: state.category === category ? state.events : [],
+    isLoading: Boolean(category) && (state.category !== category || state.isLoading),
+    error: state.category === category ? state.error : null,
+  };
 }
