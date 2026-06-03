@@ -1,24 +1,27 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ReactElement } from "react";
 import { EventSummaryCard } from "@/components/events/event-summary-card";
 import { PublicLayout } from "@/components/layout/public-layout";
-import { eventCategoryLabels, isEventCategory } from "@/lib/event-categories";
-import { useEvents } from "@/hooks/use-events";
-import type { EventCategory } from "@/types/event";
+import {
+  eventCategories,
+  eventCategoryLabels,
+  isEventCategory,
+} from "@/lib/event-categories";
+import { getEventSummariesByCategory } from "@/lib/events";
+import type { EventCategory, EventSummary } from "@/types/event";
 import type { NextPageWithLayout } from "../_app";
 
-const CategoryPage: NextPageWithLayout = () => {
-  const router = useRouter();
-  const categoryName = Array.isArray(router.query.categoryName)
-    ? router.query.categoryName[0]
-    : router.query.categoryName;
+type CategoryPageProps = {
+  category: EventCategory;
+  events: EventSummary[];
+};
 
-  const category: EventCategory | undefined =
-    categoryName && isEventCategory(categoryName) ? categoryName : undefined;
-  const { events, isLoading, error } = useEvents(category);
-  const title = category ? eventCategoryLabels[category] : "Kategori";
-  const hasInvalidCategory = router.isReady && categoryName && !category;
+const CategoryPage: NextPageWithLayout<CategoryPageProps> = ({
+  category,
+  events,
+}) => {
+  const title = eventCategoryLabels[category];
 
   return (
     <>
@@ -38,24 +41,7 @@ const CategoryPage: NextPageWithLayout = () => {
           </p>
         </div>
 
-        {!router.isReady || isLoading ? (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <div
-                key={index}
-                className="h-96 animate-pulse rounded-md border bg-muted"
-              />
-            ))}
-          </div>
-        ) : hasInvalidCategory ? (
-          <div className="rounded-md border bg-card p-6 text-sm text-muted-foreground">
-            Bu kategori bulunamadı.
-          </div>
-        ) : error ? (
-          <div className="rounded-md border bg-card p-6 text-sm text-muted-foreground">
-            {error}
-          </div>
-        ) : events.length === 0 ? (
+        {events.length === 0 ? (
           <div className="rounded-md border bg-card p-6 text-sm text-muted-foreground">
             Bu kategoride henüz etkinlik yok.
           </div>
@@ -74,5 +60,31 @@ const CategoryPage: NextPageWithLayout = () => {
 CategoryPage.getLayout = function getLayout(page: ReactElement) {
   return <PublicLayout>{page}</PublicLayout>;
 };
+
+export const getStaticPaths = (async () => {
+  return {
+    paths: eventCategories.map((category) => ({
+      params: { categoryName: category.value },
+    })),
+    fallback: false,
+  };
+}) satisfies GetStaticPaths;
+
+export const getStaticProps = (async ({ params }) => {
+  const categoryName = params?.categoryName;
+
+  if (typeof categoryName !== "string" || !isEventCategory(categoryName)) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      category: categoryName,
+      events: getEventSummariesByCategory(categoryName),
+    },
+  };
+}) satisfies GetStaticProps<CategoryPageProps>;
 
 export default CategoryPage;

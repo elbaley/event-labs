@@ -1,24 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import events from "@/data/events.json";
-import type { Event, EventSearchResponse, EventSummary } from "@/types/event";
+import { getAllEvents, toEventSummary } from "@/lib/events";
+import type { EventSearchResponse } from "@/types/event";
 
 type ErrorResponse = {
   message: string;
 };
-
-function toEventSummary(event: Event): EventSummary {
-  return {
-    id: event.id,
-    slug: event.slug,
-    title: event.title,
-    location: event.location,
-    date: event.date,
-    city_id: event.city_id,
-    category: event.category,
-    cover: event.cover,
-    basePrice: event.basePrice,
-  };
-}
 
 function normalizeSearchText(value: string): string {
   return value
@@ -48,7 +34,7 @@ export default function handler(
   }
 
   const normalizedKeyword = normalizeSearchText(keyword);
-  const matchedEvents = (events as Event[])
+  const matchedEvents = getAllEvents()
     .filter((event) => {
       const searchableText = normalizeSearchText(
         [

@@ -1,24 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import events from "@/data/events.json";
-import type { Event, EventListResponse, EventSummary } from "@/types/event";
+import { getEventSummaries } from "@/lib/events";
+import type { EventListResponse } from "@/types/event";
 
 type ErrorResponse = {
   message: string;
 };
-
-function toEventSummary(event: Event): EventSummary {
-  return {
-    id: event.id,
-    slug: event.slug,
-    title: event.title,
-    location: event.location,
-    date: event.date,
-    city_id: event.city_id,
-    category: event.category,
-    cover: event.cover,
-    basePrice: event.basePrice,
-  };
-}
 
 export default function handler(
   req: NextApiRequest,
@@ -40,21 +26,8 @@ export default function handler(
   }
 
   const cityIdFilter = city_id ? Number(city_id) : undefined;
-  const filteredEvents = (events as Event[])
-    .filter((event) => {
-      if (category && event.category !== category) {
-        return false;
-      }
-
-      if (cityIdFilter !== undefined && event.city_id !== cityIdFilter) {
-        return false;
-      }
-
-      return true;
-    })
-    .map(toEventSummary);
 
   return res.status(200).json({
-    events: filteredEvents,
+    events: getEventSummaries({ category, cityId: cityIdFilter }),
   });
 }

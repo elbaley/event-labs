@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import events from "@/data/events.json";
-import type { Event, EventDetailResponse } from "@/types/event";
+import { getEventBySlug } from "@/lib/events";
+import type { EventDetailResponse } from "@/types/event";
 
 type ErrorResponse = {
   message: string;
@@ -21,7 +21,7 @@ export default function handler(
     return res.status(400).json({ message: "Slug must be a single value" });
   }
 
-  const event = (events as Event[]).find((event) => event.slug === slug);
+  const event = getEventBySlug(slug);
 
   if (!event) {
     return res.status(404).json({ message: "Event not found" });

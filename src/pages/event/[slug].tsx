@@ -3,15 +3,13 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ReactElement } from "react";
 import { EventDetail } from "@/components/events/event-detail";
 import { PublicLayout } from "@/components/layout/public-layout";
-import events from "@/data/events.json";
+import { getAllEvents, getEventBySlug } from "@/lib/events";
 import type { Event } from "@/types/event";
 import type { NextPageWithLayout } from "../_app";
 
 type EventPageProps = {
   event: Event;
 };
-
-const allEvents = events as Event[];
 
 const EventPage: NextPageWithLayout<EventPageProps> = ({ event }) => {
   return (
@@ -32,7 +30,7 @@ EventPage.getLayout = function getLayout(page: ReactElement) {
 
 export const getStaticPaths = (async () => {
   return {
-    paths: allEvents.map((event) => ({
+    paths: getAllEvents().map((event) => ({
       params: { slug: event.slug },
     })),
     fallback: false,
@@ -48,7 +46,7 @@ export const getStaticProps = (async ({ params }) => {
     };
   }
 
-  const event = allEvents.find((event) => event.slug === slug);
+  const event = getEventBySlug(slug);
 
   if (!event) {
     return {
