@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { type FormEvent, type ReactElement, useEffect, useState } from "react";
+import { type FormEvent, type ReactElement, useState } from "react";
 import { PublicLayout } from "@/components/layout/public-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,16 +24,10 @@ function getRedirectPath(redirect: string | string[] | undefined) {
 
 const LoginPage: NextPageWithLayout = () => {
   const router = useRouter();
-  const { isAuthenticated, isLoggingIn, loginError, login } = useAuth();
+  const { isLoggingIn, loginError, login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const redirectPath = getRedirectPath(router.query.redirect);
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.replace(redirectPath);
-    }
-  }, [isAuthenticated, redirectPath, router]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
