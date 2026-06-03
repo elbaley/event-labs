@@ -25,7 +25,7 @@ function createAuthCookie(token: string) {
   )}; Path=/; Max-Age=86400; SameSite=Lax; HttpOnly`;
 }
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<LoginResponse | ErrorResponse>,
 ) {
@@ -44,6 +44,7 @@ export default function handler(
   }
 
   res.setHeader("Set-Cookie", createAuthCookie(mockAuthResponse.token));
+  await new Promise((res) => setTimeout(res, 3000));
 
   return res.status(200).json(mockAuthResponse);
 }

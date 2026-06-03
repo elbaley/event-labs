@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { MenuIcon, ShoppingCartIcon } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
@@ -29,10 +30,13 @@ const navLinks = eventCategories.map((category) => ({
 }));
 
 export function SiteHeader() {
+  const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
   const basketItemCount = useAppSelector((state) =>
     getBasketItemCount(state.cart.items),
   );
+  const isLoginPage = router.pathname === "/login";
+  const showAuthenticatedActions = isAuthenticated && !isLoginPage;
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background">
@@ -61,11 +65,14 @@ export function SiteHeader() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="hidden items-center gap-2 md:flex">
-          {isAuthenticated ? (
+        <div className="hidden min-w-56 items-center justify-end gap-2 transition-all duration-200 md:flex">
+          {showAuthenticatedActions ? (
             <>
               <Button asChild variant="ghost" size="sm">
-                <Link href="/basket">
+                <Link
+                  href="/basket"
+                  className="animate-in fade-in slide-in-from-right-1 duration-200"
+                >
                   <ShoppingCartIcon className="size-4" />
                   Sepet
                   {basketItemCount > 0 ? (
@@ -76,14 +83,28 @@ export function SiteHeader() {
                 </Link>
               </Button>
               <Button asChild variant="ghost" size="sm">
-                <Link href="/profile">Profil</Link>
+                <Link
+                  href="/profile"
+                  className="animate-in fade-in slide-in-from-right-1 duration-200"
+                >
+                  Profil
+                </Link>
               </Button>
-              <Button variant="outline" size="sm" onClick={logout}>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={logout}
+                className="animate-in fade-in slide-in-from-right-1 duration-200"
+              >
                 Çıkış
               </Button>
             </>
-          ) : (
-            <Button asChild size="sm">
+          ) : isLoginPage ? null : (
+            <Button
+              asChild
+              size="sm"
+              className="animate-in fade-in slide-in-from-right-1 duration-200"
+            >
               <Link href="/login">Giriş</Link>
             </Button>
           )}
@@ -124,7 +145,7 @@ export function SiteHeader() {
                   </Link>
                 </SheetClose>
               ))}
-              {isAuthenticated ? (
+              {showAuthenticatedActions ? (
                 <SheetClose asChild>
                   <Link
                     href="/basket"
@@ -144,7 +165,7 @@ export function SiteHeader() {
             <Separator />
 
             <div className="mt-auto flex flex-col gap-2 p-4">
-              {isAuthenticated ? (
+              {showAuthenticatedActions ? (
                 <>
                   <SheetClose asChild>
                     <Link
@@ -160,7 +181,7 @@ export function SiteHeader() {
                     </Button>
                   </SheetClose>
                 </>
-              ) : (
+              ) : isLoginPage ? null : (
                 <SheetClose asChild>
                   <Link
                     href="/login"
