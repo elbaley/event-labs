@@ -10,6 +10,7 @@ import {
   ComboboxItem,
   ComboboxList,
 } from "@/components/ui/combobox";
+import { useCityPreference } from "@/hooks/use-city-preference";
 import { searchEventsRequest } from "@/services/events.service";
 import type { EventSummary } from "@/types/event";
 
@@ -30,6 +31,7 @@ type EventSearchComboboxProps = {
 };
 
 export function EventSearchCombobox({ className }: EventSearchComboboxProps) {
+  const { selectedCityId } = useCityPreference();
   const [query, setQuery] = useState("");
   const [events, setEvents] = useState<EventSummary[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +49,11 @@ export function EventSearchCombobox({ className }: EventSearchComboboxProps) {
     const timeoutId = window.setTimeout(() => {
       setIsLoading(true);
 
-      searchEventsRequest(trimmedQuery, { signal: controller.signal })
+      searchEventsRequest(
+        trimmedQuery,
+        { cityId: selectedCityId },
+        { signal: controller.signal },
+      )
         .then(setEvents)
         .catch((error: unknown) => {
           if (error instanceof DOMException && error.name === "AbortError") {
@@ -69,7 +75,7 @@ export function EventSearchCombobox({ className }: EventSearchComboboxProps) {
       window.clearTimeout(timeoutId);
       controller.abort();
     };
-  }, [canSearch, trimmedQuery]);
+  }, [canSearch, selectedCityId, trimmedQuery]);
 
   function handleInputValueChange(value: string) {
     setQuery(value);

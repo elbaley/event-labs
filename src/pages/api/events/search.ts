@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { parseCityId } from "@/lib/cities";
 import { getAllEvents, toEventSummary } from "@/lib/events";
 import type { EventSearchResponse } from "@/types/event";
 
@@ -23,19 +24,33 @@ export default function handler(
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { keyword } = req.query;
+  const { keyword, city_id } = req.query;
 
   if (Array.isArray(keyword)) {
     return res.status(400).json({ message: "Keyword must be a single value" });
+  }
+
+  if (Array.isArray(city_id)) {
+    return res.status(400).json({ message: "City id must be a single value" });
   }
 
   if (!keyword || !keyword.trim()) {
     return res.status(400).json({ message: "Keyword is required" });
   }
 
+  const cityIdFilter = parseCityId(city_id);
+
+  if (city_id && cityIdFilter === undefined) {
+    return res.status(400).json({ message: "City id is invalid" });
+  }
+
   const normalizedKeyword = normalizeSearchText(keyword);
   const matchedEvents = getAllEvents()
     .filter((event) => {
+      if (cityIdFilter !== undefined && event.city_id !== cityIdFilter) {
+        return false;
+      }
+
       const searchableText = normalizeSearchText(
         [
           event.title,

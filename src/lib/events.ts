@@ -25,8 +25,19 @@ export function getEventBySlug(slug: string): Event | undefined {
   return allEvents.find((event) => event.slug === slug);
 }
 
-export function getFeaturedEventSummaries(): EventSummary[] {
-  return allEvents.slice(0, 8).map(toEventSummary);
+export function getFeaturedEventSummaries(options?: {
+  cityId?: number;
+}): EventSummary[] {
+  return allEvents
+    .filter((event) => {
+      if (options?.cityId !== undefined && event.city_id !== options.cityId) {
+        return false;
+      }
+
+      return true;
+    })
+    .slice(0, 8)
+    .map(toEventSummary);
 }
 
 export function getEventSummariesByCategory(

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ReactElement } from "react";
-import { EventSummaryCard } from "@/components/events/event-summary-card";
+import { CityFilteredEventGrid } from "@/components/events/city-filtered-event-grid";
 import { PublicLayout } from "@/components/layout/public-layout";
 import {
   eventCategories,
@@ -41,17 +41,10 @@ const CategoryPage: NextPageWithLayout<CategoryPageProps> = ({
           </p>
         </div>
 
-        {events.length === 0 ? (
-          <div className="rounded-md border bg-card p-6 text-sm text-muted-foreground">
-            Bu kategoride henüz etkinlik yok.
-          </div>
-        ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {events.map((event) => (
-              <EventSummaryCard key={event.id} event={event} />
-            ))}
-          </div>
-        )}
+        <CityFilteredEventGrid
+          events={events}
+          emptyMessage="Bu kategoride seçili şehir için etkinlik yok."
+        />
       </div>
     </>
   );

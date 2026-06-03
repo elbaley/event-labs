@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { parseCityId } from "@/lib/cities";
 import { getEventSummaries } from "@/lib/events";
 import type { EventListResponse } from "@/types/event";
 
@@ -25,7 +26,11 @@ export default function handler(
     return res.status(400).json({ message: "City id must be a single value" });
   }
 
-  const cityIdFilter = city_id ? Number(city_id) : undefined;
+  const cityIdFilter = parseCityId(city_id);
+
+  if (city_id && cityIdFilter === undefined) {
+    return res.status(400).json({ message: "City id is invalid" });
+  }
 
   return res.status(200).json({
     events: getEventSummaries({ category, cityId: cityIdFilter }),
