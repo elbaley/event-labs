@@ -62,20 +62,19 @@ export function SiteHeader() {
         </NavigationMenu>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/basket">
-              <ShoppingCartIcon className="size-4" />
-              Sepet
-              {basketItemCount > 0 ? (
-                <span className="ml-0.5 rounded-md bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
-                  {basketItemCount}
-                </span>
-              ) : null}
-            </Link>
-          </Button>
-
           {isAuthenticated ? (
             <>
+              <Button asChild variant="ghost" size="sm">
+                <Link href="/basket">
+                  <ShoppingCartIcon className="size-4" />
+                  Sepet
+                  {basketItemCount > 0 ? (
+                    <span className="ml-0.5 rounded-md bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
+                      {basketItemCount}
+                    </span>
+                  ) : null}
+                </Link>
+              </Button>
               <Button asChild variant="ghost" size="sm">
                 <Link href="/profile">Profil</Link>
               </Button>
@@ -125,19 +124,21 @@ export function SiteHeader() {
                   </Link>
                 </SheetClose>
               ))}
-              <SheetClose asChild>
-                <Link
-                  href="/basket"
-                  className="flex items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                >
-                  <span>Sepet</span>
-                  {basketItemCount > 0 ? (
-                    <span className="rounded-md bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
-                      {basketItemCount}
-                    </span>
-                  ) : null}
-                </Link>
-              </SheetClose>
+              {isAuthenticated ? (
+                <SheetClose asChild>
+                  <Link
+                    href="/basket"
+                    className="flex items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  >
+                    <span>Sepet</span>
+                    {basketItemCount > 0 ? (
+                      <span className="rounded-md bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
+                        {basketItemCount}
+                      </span>
+                    ) : null}
+                  </Link>
+                </SheetClose>
+              ) : null}
             </nav>
 
             <Separator />

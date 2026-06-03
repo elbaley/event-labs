@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { loginSuccess, logout as logoutAction } from "@/store/slices/authSlice";
+import { clearBasket } from "@/store/slices/cartSlice";
 import { loginRequest, logoutRequest } from "@/services/auth.service";
 import type { LoginCredentials } from "@/types/auth";
 import { useRouter } from "next/router";
@@ -34,6 +35,7 @@ export function useAuth() {
   const logout = useCallback(async () => {
     setLoginError(null);
     dispatch(logoutAction());
+    dispatch(clearBasket());
     await logoutRequest();
     router.replace("/");
   }, [dispatch, router]);

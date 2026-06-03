@@ -1,13 +1,14 @@
-import { Provider } from "react-redux";
-import { store } from "@/store/store";
 import { PropsWithChildren } from "react";
-import { AuthHydrator } from "./auth-hydrator";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import { persistor, store } from "@/store/store";
 
 export function AppProviders({ children }: PropsWithChildren) {
   return (
     <Provider store={store}>
-      <AuthHydrator />
-      {children}
+      <PersistGate loading={null} persistor={persistor}>
+        {children}
+      </PersistGate>
     </Provider>
   );
 }
