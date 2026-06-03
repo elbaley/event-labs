@@ -32,6 +32,7 @@ pnpm build
 - Next.js 16 Pages Router
 - TypeScript
 - Tailwind CSS 4
+- ShadCN
 - Redux Toolkit
 - Redux Persist
 - React Hook Form
