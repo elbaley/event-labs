@@ -7,7 +7,7 @@
     "date": "2026-07-12T20:30:00+03:00",
     "category": "concert",
     "description": "Tarkan, yaz konserleri kapsamında Harbiye sahnesinde sevilen şarkıları ve yüksek enerjili sahne performansıyla dinleyicilerle buluşuyor.",
-    "cover": "https://placehold.co/1200x800?text=Tarkan+Konseri",
+    "cover": "https://placehold.co/600x400/4F46E5/FFFFFF?text=Tarkan+Konseri",
     "basePrice": 1250,
     "city_id": 34
   },
@@ -19,7 +19,7 @@
     "date": "2026-07-18T21:00:00+03:00",
     "category": "concert",
     "description": "Sezen Aksu repertuvarından unutulmaz şarkılar, özel orkestra düzenlemeleriyle İzmir'de tek gecelik bir programda sahneleniyor.",
-    "cover": "https://placehold.co/1200x800?text=Sezen+Aksu",
+    "cover": "https://placehold.co/600x400/DC143C/FFFFFF?text=Sezen+Aksu",
     "basePrice": 1500,
     "city_id": 35
   },
@@ -31,7 +31,7 @@
     "date": "2026-08-02T21:15:00+03:00",
     "category": "concert",
     "description": "Kenan Doğulu, pop müziğin sevilen parçalarını Bursa Kültürpark atmosferinde yaz sahnesine taşıyor.",
-    "cover": "https://placehold.co/1200x800?text=Kenan+Dogulu",
+    "cover": "https://placehold.co/600x400/F97316/FFFFFF?text=Kenan+Dogulu",
     "basePrice": 980,
     "city_id": 16
   },
@@ -43,7 +43,7 @@
     "date": "2026-09-05T20:00:00+03:00",
     "category": "concert",
     "description": "Sertab Erener, güçlü vokali ve senfonik düzenlemelerle hazırlanan özel konserinde Ankara seyircisiyle buluşuyor.",
-    "cover": "https://placehold.co/1200x800?text=Sertab+Erener",
+    "cover": "https://placehold.co/600x400/0F766E/FFFFFF?text=Sertab+Erener",
     "basePrice": 850,
     "city_id": 6
   },
@@ -55,7 +55,7 @@
     "date": "2026-06-27T19:30:00+03:00",
     "category": "concert",
     "description": "Mor ve Ötesi, rock müziğin klasikleşen şarkılarını geniş sahne prodüksiyonu ve açık hava enerjisiyle seslendiriyor.",
-    "cover": "https://placehold.co/1200x800?text=Mor+ve+Otesi",
+    "cover": "https://placehold.co/600x400/7E22CE/FFFFFF?text=Mor+ve+Otesi",
     "basePrice": 720,
     "city_id": 34
   },
@@ -67,7 +67,7 @@
     "date": "2026-07-25T21:00:00+03:00",
     "category": "concert",
     "description": "Mabel Matiz, son albümünden parçalar ve hit şarkılarıyla İzmir yaz sahnesinde renkli bir konser deneyimi sunuyor.",
-    "cover": "https://placehold.co/1200x800?text=Mabel+Matiz",
+    "cover": "https://placehold.co/600x400/DB2777/FFFFFF?text=Mabel+Matiz",
     "basePrice": 790,
     "city_id": 35
   },
@@ -79,7 +79,7 @@
     "date": "2026-08-14T20:30:00+03:00",
     "category": "concert",
     "description": "Duman, Ankara'da rock dinleyicilerini geniş setlist, güçlü gitarlar ve kalabalık korolarla buluşturuyor.",
-    "cover": "https://placehold.co/1200x800?text=Duman",
+    "cover": "https://placehold.co/600x400/111827/FFFFFF?text=Duman",
     "basePrice": 690,
     "city_id": 6
   },
@@ -91,7 +91,7 @@
     "date": "2026-09-11T20:45:00+03:00",
     "category": "concert",
     "description": "Yıldız Tilbe, kendine özgü yorumu ve sevilen şarkılarıyla Bursa'da duygusal ve hareketli bir konser veriyor.",
-    "cover": "https://placehold.co/1200x800?text=Yildiz+Tilbe",
+    "cover": "https://placehold.co/600x400/FACC15/111827?text=Yildiz+Tilbe",
     "basePrice": 740,
     "city_id": 16
   },
@@ -103,7 +103,7 @@
     "date": "2026-10-03T20:00:00+03:00",
     "category": "concert",
     "description": "Cem Adrian, akustik düzenlemelerle hazırlanan özel programında Ankara seyircisine yoğun ve samimi bir performans sunuyor.",
-    "cover": "https://placehold.co/1200x800?text=Cem+Adrian",
+    "cover": "https://placehold.co/600x400/1E1B4B/FFFFFF?text=Cem+Adrian",
     "basePrice": 620,
     "city_id": 6
   },
@@ -115,7 +115,7 @@
     "date": "2026-06-20T20:00:00+03:00",
     "category": "concert",
     "description": "Athena, ska ve rock etkili şarkılarıyla İstanbul festival sahnesinde tempolu bir geceye imza atıyor.",
-    "cover": "https://placehold.co/1200x800?text=Athena",
+    "cover": "https://placehold.co/600x400/84CC16/111827?text=Athena",
     "basePrice": 560,
     "city_id": 34
   },
@@ -127,7 +127,7 @@
     "date": "2026-08-29T21:30:00+03:00",
     "category": "concert",
     "description": "Hadise, dans koreografileri ve pop hitleriyle İzmir'de yüksek tempolu bir konser programı hazırlıyor.",
-    "cover": "https://placehold.co/1200x800?text=Hadise",
+    "cover": "https://placehold.co/600x400/EC4899/FFFFFF?text=Hadise",
     "basePrice": 680,
     "city_id": 35
   },
@@ -139,7 +139,7 @@
     "date": "2026-10-17T21:00:00+03:00",
     "category": "concert",
     "description": "Levent Yüksel, pop müziğin zamansız parçalarını Kadıköy'de sıcak ve güçlü bir sahne performansıyla seslendiriyor.",
-    "cover": "https://placehold.co/1200x800?text=Levent+Yuksel",
+    "cover": "https://placehold.co/600x400/2563EB/FFFFFF?text=Levent+Yuksel",
     "basePrice": 590,
     "city_id": 34
   },
@@ -151,7 +151,7 @@
     "date": "2026-07-04T20:30:00+03:00",
     "category": "theatre",
     "description": "Shakespeare'in Hamlet metninden hareketle kurulan oyun, mizah ve yüksek tempo ile iki oyunculu yaratıcı bir sahne deneyimi sunuyor.",
-    "cover": "https://placehold.co/1200x800?text=Bir+Baba+Hamlet",
+    "cover": "https://placehold.co/600x400/991B1B/FFFFFF?text=Bir+Baba+Hamlet",
     "basePrice": 520,
     "city_id": 34
   },
@@ -163,7 +163,7 @@
     "date": "2026-09-19T20:00:00+03:00",
     "category": "theatre",
     "description": "Mozart ve Salieri arasındaki çarpıcı rekabeti konu alan Amadeus, güçlü oyunculukları ve etkileyici sahne tasarımıyla sahneleniyor.",
-    "cover": "https://placehold.co/1200x800?text=Amadeus",
+    "cover": "https://placehold.co/600x400/475569/FFFFFF?text=Amadeus",
     "basePrice": 640,
     "city_id": 34
   },
@@ -175,7 +175,7 @@
     "date": "2026-10-09T20:00:00+03:00",
     "category": "theatre",
     "description": "Moliere'in klasik komedisi Cimri, güncel yorumuyla para, aile ve çıkar ilişkileri üzerine keskin bir mizah sunuyor.",
-    "cover": "https://placehold.co/1200x800?text=Cimri",
+    "cover": "https://placehold.co/600x400/4D7C0F/FFFFFF?text=Cimri",
     "basePrice": 280,
     "city_id": 6
   },
@@ -187,7 +187,7 @@
     "date": "2026-08-08T20:30:00+03:00",
     "category": "theatre",
     "description": "Modern şehir hayatını ve kiralık ev arayışının absürtlüğünü anlatan komedi, hızlı diyaloglarıyla seyirciyi yakalıyor.",
-    "cover": "https://placehold.co/1200x800?text=Sahibinden+Kiralik",
+    "cover": "https://placehold.co/600x400/92400E/FFFFFF?text=Sahibinden+Kiralik",
     "basePrice": 230,
     "city_id": 35
   },
@@ -199,7 +199,7 @@
     "date": "2026-11-14T20:30:00+03:00",
     "category": "theatre",
     "description": "Alice'in fantastik dünyası, müzik, dans, dijital sahne tasarımı ve büyük prodüksiyon diliyle yeniden yorumlanıyor.",
-    "cover": "https://placehold.co/1200x800?text=Alice+Muzikali",
+    "cover": "https://placehold.co/600x400/2DD4BF/111827?text=Alice+Muzikali",
     "basePrice": 760,
     "city_id": 34
   },
@@ -211,7 +211,7 @@
     "date": "2026-07-31T20:00:00+03:00",
     "category": "theatre",
     "description": "İlişkiler, aileler ve düğün hazırlıkları üzerine kurulu romantik komedi, Bursa seyircisine eğlenceli bir akşam sunuyor.",
-    "cover": "https://placehold.co/1200x800?text=Seninle+Evlenir+miyim",
+    "cover": "https://placehold.co/600x400/EF4444/FFFFFF?text=Seninle+Evlenir+miyim",
     "basePrice": 260,
     "city_id": 16
   },
@@ -223,7 +223,7 @@
     "date": "2026-12-05T20:00:00+03:00",
     "category": "theatre",
     "description": "Gündelik hayatın küçük kırılmalarını anlatan oyun, sıcak mizahı ve duygusal tonu ile seyirciyi karakterlerin dünyasına davet ediyor.",
-    "cover": "https://placehold.co/1200x800?text=Olagan+Mucizeler",
+    "cover": "https://placehold.co/600x400/15803D/FFFFFF?text=Olagan+Mucizeler",
     "basePrice": 310,
     "city_id": 6
   },
@@ -235,7 +235,7 @@
     "date": "2026-11-21T20:00:00+03:00",
     "category": "theatre",
     "description": "John Steinbeck'in güçlü hikayesi, dostluk, umut ve hayal kırıklığı temaları etrafında yoğun bir sahne diliyle yorumlanıyor.",
-    "cover": "https://placehold.co/1200x800?text=Fareler+ve+Insanlar",
+    "cover": "https://placehold.co/600x400/334155/FFFFFF?text=Fareler+ve+Insanlar",
     "basePrice": 240,
     "city_id": 16
   },
@@ -247,7 +247,7 @@
     "date": "2026-09-26T20:30:00+03:00",
     "category": "theatre",
     "description": "Güldür Güldür ekibi, güncel konuları skeçlerle ele alan canlı sahne programıyla İstanbul seyircisi karşısına çıkıyor.",
-    "cover": "https://placehold.co/1200x800?text=Guldur+Guldur",
+    "cover": "https://placehold.co/600x400/FDE047/111827?text=Guldur+Guldur",
     "basePrice": 430,
     "city_id": 34
   },
@@ -259,7 +259,7 @@
     "date": "2026-10-24T20:00:00+03:00",
     "category": "theatre",
     "description": "Tek kişilik performans diliyle öne çıkan Lütfiye, aile, hafıza ve dayanışma üzerine samimi bir anlatı kuruyor.",
-    "cover": "https://placehold.co/1200x800?text=Lutfiye",
+    "cover": "https://placehold.co/600x400/BE185D/FFFFFF?text=Lutfiye",
     "basePrice": 210,
     "city_id": 6
   },
@@ -271,7 +271,7 @@
     "date": "2026-12-12T20:00:00+03:00",
     "category": "theatre",
     "description": "Shakespeare'in iktidar, aile ve çöküş temalarını işleyen tragedyası, güçlü bir klasik yorumla İzmir'de sahneleniyor.",
-    "cover": "https://placehold.co/1200x800?text=Kral+Lear",
+    "cover": "https://placehold.co/600x400/7F1D1D/FFFFFF?text=Kral+Lear",
     "basePrice": 300,
     "city_id": 35
   },
@@ -283,7 +283,7 @@
     "date": "2026-11-07T20:30:00+03:00",
     "category": "theatre",
     "description": "Eski bir mektubun peşinden ilerleyen romantik oyun, geçmiş kararların bugünkü ilişkilere etkisini sıcak bir dille anlatıyor.",
-    "cover": "https://placehold.co/1200x800?text=Ask+Gecmisten+Gelir",
+    "cover": "https://placehold.co/600x400/0891B2/FFFFFF?text=Ask+Gecmisten+Gelir",
     "basePrice": 220,
     "city_id": 16
   },
@@ -295,7 +295,7 @@
     "date": "2026-09-13T20:00:00+03:00",
     "category": "sport",
     "description": "Süper Lig'in en büyük rekabetlerinden Galatasaray - Fenerbahçe derbisi, yüksek tempo ve yoğun atmosferle futbolseverleri bekliyor.",
-    "cover": "https://placehold.co/1200x800?text=GS+FB+Derbi",
+    "cover": "https://placehold.co/600x400/B91C1C/FFFFFF?text=GS+FB+Derbi",
     "basePrice": 1400,
     "city_id": 34
   },
@@ -307,7 +307,7 @@
     "date": "2026-10-04T19:00:00+03:00",
     "category": "sport",
     "description": "Beşiktaş ve Trabzonspor, Süper Lig mücadelesinde İstanbul'da karşı karşıya geliyor.",
-    "cover": "https://placehold.co/1200x800?text=BJK+TS",
+    "cover": "https://placehold.co/600x400/374151/FFFFFF?text=BJK+TS",
     "basePrice": 950,
     "city_id": 34
   },
@@ -319,7 +319,7 @@
     "date": "2026-06-16T21:45:00+03:00",
     "category": "sport",
     "description": "A Milli Futbol Takımı, Ankara'da oynanacak hazırlık maçında taraftarıyla buluşuyor.",
-    "cover": "https://placehold.co/1200x800?text=A+Milli+Takim",
+    "cover": "https://placehold.co/600x400/DC2626/FFFFFF?text=A+Milli+Takim",
     "basePrice": 650,
     "city_id": 6
   },
@@ -331,7 +331,7 @@
     "date": "2026-06-24T20:30:00+03:00",
     "category": "sport",
     "description": "Türkiye basketbolunun iki güçlü ekibi, final serisinin kritik karşılaşmasında parkede kozlarını paylaşıyor.",
-    "cover": "https://placehold.co/1200x800?text=Efes+Fenerbahce",
+    "cover": "https://placehold.co/600x400/1D4ED8/FFFFFF?text=Efes+Fenerbahce",
     "basePrice": 780,
     "city_id": 34
   },
@@ -343,7 +343,7 @@
     "date": "2026-06-29T19:30:00+03:00",
     "category": "sport",
     "description": "VakıfBank ve Eczacıbaşı, kadınlar voleybol finalinde güçlü kadrolarıyla şampiyonluk mücadelesi veriyor.",
-    "cover": "https://placehold.co/1200x800?text=VakifBank+Eczacibasi",
+    "cover": "https://placehold.co/600x400/EA580C/FFFFFF?text=VakifBank+Eczacibasi",
     "basePrice": 520,
     "city_id": 34
   },
@@ -355,7 +355,7 @@
     "date": "2026-10-18T08:00:00+03:00",
     "category": "sport",
     "description": "İzmir Maratonu, şehir merkezinden sahil hattına uzanan parkuruyla koşucuları ve izleyicileri bir araya getiriyor.",
-    "cover": "https://placehold.co/1200x800?text=Izmir+Maratonu",
+    "cover": "https://placehold.co/600x400/0284C7/FFFFFF?text=Izmir+Maratonu",
     "basePrice": 350,
     "city_id": 35
   },
@@ -367,7 +367,7 @@
     "date": "2026-09-06T10:00:00+03:00",
     "category": "sport",
     "description": "İstanbul Bisiklet Turu final etabı, tarihi yarımada ve sahil rotasında profesyonel sporcuları izleyiciyle buluşturuyor.",
-    "cover": "https://placehold.co/1200x800?text=Istanbul+Bisiklet+Turu",
+    "cover": "https://placehold.co/600x400/166534/FFFFFF?text=Istanbul+Bisiklet+Turu",
     "basePrice": 180,
     "city_id": 34
   },
@@ -379,7 +379,7 @@
     "date": "2026-05-27T20:45:00+03:00",
     "category": "sport",
     "description": "Türkiye Kupası finali, sezonun en önemli tek maç heyecanlarından biri olarak İzmir'de futbolseverlerle buluşuyor.",
-    "cover": "https://placehold.co/1200x800?text=Turkiye+Kupasi",
+    "cover": "https://placehold.co/600x400/0F4C81/FFFFFF?text=Turkiye+Kupasi",
     "basePrice": 860,
     "city_id": 35
   }
