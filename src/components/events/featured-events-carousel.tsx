@@ -46,7 +46,7 @@ export function FeaturedEventsCarousel({
       opts={{ align: "start", loop: true }}
       plugins={[
         Autoplay({
-          delay: 30000,
+          delay: 3000,
           stopOnInteraction: true,
         }),
       ]}
