@@ -71,7 +71,9 @@ type EventDetailProps = {
 export function EventDetail({ event }: EventDetailProps) {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const isBasketEmpty = useAppSelector((state) => state.cart.items.length === 0);
+  const isBasketEmpty = useAppSelector(
+    (state) => state.cart.items.length === 0,
+  );
   const [ticketType, setTicketType] = useState("");
   const [category, setCategory] = useState("");
   const [section, setSection] = useState("");
@@ -354,10 +356,6 @@ export function EventDetail({ event }: EventDetailProps) {
                 </div>
               </div>
             </div>
-
-            <Button className="w-full" asChild>
-              <Link href="/basket">Sepete git</Link>
-            </Button>
           </CardContent>
         </Card>
       </div>
