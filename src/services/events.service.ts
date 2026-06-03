@@ -40,10 +40,12 @@ export async function getEventDetailRequest(slug: string) {
 
 export async function searchEventsRequest(
   keyword: string,
+  init?: RequestInit,
 ): Promise<EventSummary[]> {
   const searchParams = new URLSearchParams({ keyword });
   const data = await fetchJson<EventSearchResponse>(
     `/api/events/search?${searchParams.toString()}`,
+    init,
   );
 
   return data.events;

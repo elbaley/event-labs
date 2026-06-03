@@ -1,11 +1,5 @@
 import Image from "next/image";
-import {
-  Combobox,
-  ComboboxContent,
-  ComboboxEmpty,
-  ComboboxInput,
-  ComboboxList,
-} from "@/components/ui/combobox";
+import { EventSearchCombobox } from "@/components/events/event-search-combobox";
 
 export function HomeHero() {
   return (
@@ -21,17 +15,7 @@ export function HomeHero() {
           </p>
         </div>
 
-        <Combobox items={[]}>
-          <ComboboxInput
-            placeholder="Etkinlik, sanatçı ya da mekan arayın."
-            className="h-12 w-full max-w-xl border-white bg-white! text-foreground shadow-none [&_button_svg]:text-muted-foreground [&_input]:font-medium [&_input]:text-foreground [&_input::placeholder]:text-muted-foreground"
-          />
-          <ComboboxContent>
-            <ComboboxList>
-              <ComboboxEmpty>Arama yakında aktif olacak.</ComboboxEmpty>
-            </ComboboxList>
-          </ComboboxContent>
-        </Combobox>
+        <EventSearchCombobox className="h-12 w-full max-w-xl border-white bg-white! text-foreground shadow-none [&_button_svg]:text-muted-foreground [&_input]:font-medium [&_input]:text-foreground [&_input::placeholder]:text-muted-foreground" />
       </div>
 
       <div className="relative min-h-64 border-t border-white/15 md:border-t-0 md:border-l">
