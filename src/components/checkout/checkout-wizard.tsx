@@ -87,7 +87,7 @@ export function CheckoutWizard() {
     setValue,
     trigger,
   } = useForm<CheckoutFormValues>({
-    resolver: zodResolver(checkoutSchema as never) as Resolver<CheckoutFormValues>,
+    resolver: zodResolver(checkoutSchema) as Resolver<CheckoutFormValues>,
     defaultValues: {
       fullName: "",
       email: "",
@@ -268,10 +268,7 @@ export function CheckoutWizard() {
               </div>
             </CardHeader>
             <CardContent className="grid gap-4 md:grid-cols-2">
-              <Field
-                label="Ad soyad"
-                error={getFieldError(errors, "fullName")}
-              >
+              <Field label="Ad soyad" error={getFieldError(errors, "fullName")}>
                 <Input
                   autoComplete="name"
                   aria-invalid={Boolean(errors.fullName)}
@@ -470,7 +467,9 @@ export function CheckoutWizard() {
       <Card className="h-fit rounded-md">
         <CardHeader>
           <CardTitle>Sepet özeti</CardTitle>
-          <CardDescription>{basketItems.length} farklı bilet seçimi</CardDescription>
+          <CardDescription>
+            {basketItems.length} farklı bilet seçimi
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-3">

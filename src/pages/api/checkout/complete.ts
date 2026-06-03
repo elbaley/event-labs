@@ -17,11 +17,11 @@ function hasCheckoutPayload(body: unknown): body is CheckoutCompleteRequest {
 
   return Boolean(
     Array.isArray(payload.basketItems) &&
-      payload.basketItems.length > 0 &&
-      payload.customer &&
-      typeof payload.totalPrice === "number" &&
-      payload.totalPrice > 0 &&
-      payload.payment,
+    payload.basketItems.length > 0 &&
+    payload.customer &&
+    typeof payload.totalPrice === "number" &&
+    payload.totalPrice > 0 &&
+    payload.payment,
   );
 }
 
@@ -41,6 +41,6 @@ export default function handler(
   return res.status(200).json({
     success: true,
     orderId: `EVL-${Math.floor(100000 + Math.random() * 900000)}`,
-    message: "Checkout completed successfully",
+    message: "Sipariş başarılı.",
   });
 }
