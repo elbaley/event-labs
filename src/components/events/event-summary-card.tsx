@@ -34,7 +34,7 @@ type EventSummaryCardProps = {
 export function EventSummaryCard({ event }: EventSummaryCardProps) {
   return (
     <Link
-      href={`/events/${encodeURIComponent(event.slug)}`}
+      href={`/event/${encodeURIComponent(event.slug)}`}
       className="group block h-full"
     >
       <Card className="h-full gap-0 rounded-md border bg-card py-0 shadow-xs ring-0">
